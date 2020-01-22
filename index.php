@@ -1,0 +1,5 @@
+<?php
+
+edho "Web Test";
+
+?>
