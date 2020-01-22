@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>グラフ画面</title>
+  <link rel="stylesheet" href="./css/Common.css">
+  <link rel="stylesheet" href="./css/Chart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+  <link rel="stylesheet" href="./css/pushbar.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="./js/RuiChart.js"></script>
+  <link rel="icon" type="image/png" href="./img/FaviconChart.png" sizes="16x16" id="favicon">
+</head>
+
+<body>
+
+  <!-- リスト・メニュー記述位置変更↓へ
+         ヘッダー・メニューアイコン  メイン・グラフ画面共通で使用する-->
+  <header>
+    <span data-pushbar-target="left">
+      <i id="show" class="fa fa-bars"></i>
+      <!--id変更 menubtn→show-->
+    </span>
+    <p class="title">IoT3nd</p>
+  </header>
+
+  <!-- box1 空室情報・使用時間を表示
+              左・中央・右で三分割して記述-->
+  <!-- 一時的にインラインコーディング -->
+  <!-- 日付入力欄 -->
+  <style>
+    div#date_select {
+      margin: 0 auto;
+      padding: 10px;
+      width: 80%;
+      text-align: center;
+    }
+  </style>
+  <div id="date_select">
+    <form name="form" onsubmit="return false">
+      <p style="display:inline">データ期間</p>
+      <input name="date_start" type="date" value="2019-12-04">～
+      <input name="date_end" type="date" value="2019-12-04">
+      <button name="exec">表示</button>
+    </form>
+  </div>
+  <script>
+    document.form.exec.addEventListener('click', function() {
+      alert('test');
+    });
+  </script>
+  <!--  グラフの描画エリア -->
+  <div id="chart1_div" style="width: 75%; height: 350px"></div>
+  <div id="chart2_div" style="width: 75%; height: 350px"></div>
+
+  <!-- ↓メイン・グラフ画面共有で使用する-->
+  <div id="cover"></div> <!-- 背景を暗くするための範囲指定-->
+
+  <!-- ナビゲーションメニュー　アイコンのクリック時にz-indexの切り替えで表示-->
+  <div id="menu">
+    <div class="hide_area">
+      <span id="hide" class="fa fa-remove"></span>
+    </div>
+    <div class="menu_title">MENU</div>
+    <ul class="menu_list">
+      <li class="menu" id="current"> <a href="./index.html" class="link">GRAPH</a></li>
+      <li class="menu"> <a href="http://www.mbcnet.co.jp/" class="link" target="_blank" rel="noopener">About</a></li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="./js/pushbar.js"></script>
+</body>
+
+</html>
